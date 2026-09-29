@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #f1f7f5;
+  --color-surface: #ffffff;
+  --color-panel: #fbfcfb;
+  --color-line: #dbeae7;
+  --color-ink: #10201f;
+  --color-plum: #0f766e;
+  --color-plum-light: #0d9488;
+  --color-plum-soft: #dff3ee;
+  --color-success: #54b878;
+  --color-warning: #d97706;
+  --color-info: #5b86d1;
+  --color-danger: #d1568a;
+  --color-violet: #8377d6;
+  --color-muted: #637572;
+  --font-sans: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-display: Newsreader, Georgia, "Songti SC", serif;
+  --radius-card: 24px;
+  --shadow-soft: 0 1px 2px rgb(15 45 43 / 4%), 0 18px 42px -28px rgb(15 45 43 / 24%);
+  --shadow-pop: 0 20px 52px -26px rgb(15 45 43 / 30%);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { min-height: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(13, 148, 136, .08), transparent 34%),
+    radial-gradient(circle at 88% 12%, rgba(91, 134, 209, .07), transparent 30%),
+    var(--color-background);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: #c9ece5; }
+
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: #cfe2de; border: 2px solid transparent; background-clip: content-box; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #a9c8c3; background-clip: content-box; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.app-shell-scroll { overscroll-behavior-y: contain; scroll-behavior: smooth; }
+
+.fade-in { animation: fade-in .24s ease both; }
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.recharts-surface:focus { outline: none; }
+.recharts-cartesian-axis-tick text { fill: #73847f; font-size: 11px; }
+.recharts-legend-item-text { color: #546765 !important; font-size: 12px !important; }
+
+.datahub-panel {
+  background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(251,252,251,.82));
+  backdrop-filter: blur(18px);
+}
+
+input[type="range"] {
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: #dbeae7;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #fff;
+  background: #0f766e;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(15,118,110,.34);
+}
