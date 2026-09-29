@@ -1,0 +1,9 @@
+services:
+  nginx:
+    ports:
+      - "${DATAHUB_HTTPS_PORT:?DATAHUB_HTTPS_PORT is required}:443"
+    volumes:
+      - ./nginx/https-redirect.conf:/etc/nginx/datahub/http-mode.conf:ro
+      - ./nginx/https.conf:/etc/nginx/conf.d/datahub-https.conf:ro
+      - ${DATAHUB_SSL_CERT_FILE:?DATAHUB_SSL_CERT_FILE is required}:/etc/nginx/tls/fullchain.pem:ro
+      - ${DATAHUB_SSL_KEY_FILE:?DATAHUB_SSL_KEY_FILE is required}:/etc/nginx/tls/privkey.pem:ro

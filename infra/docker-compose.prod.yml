@@ -1,0 +1,152 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks: [datahub]
+
+  minio:
+    image: minio/minio:RELEASE.2024-11-07T00-52-20Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+    volumes:
+      - minio-data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks: [datahub]
+
+  minio-init:
+    image: ${MINIO_MC_IMAGE:-minio/mc:RELEASE.2024-11-05T11-29-47Z}
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      MC_HOST_local: http://${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}:${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}@minio:9000
+      DATAHUB_S3_BUCKET: ${DATAHUB_S3_BUCKET:?DATAHUB_S3_BUCKET is required}
+    entrypoint: ["/bin/sh", "-c"]
+    command: ['mc mb --ignore-existing "local/$${DATAHUB_S3_BUCKET}" && mc anonymous set none "local/$${DATAHUB_S3_BUCKET}"']
+    networks: [datahub]
+
+  backend:
+    build:
+      context: ../server
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    environment:
+      DATAHUB_ENV: production
+      DATAHUB_SECRET: ${DATAHUB_SECRET:?DATAHUB_SECRET is required}
+      DATAHUB_ADMIN_PASSWORD: ${DATAHUB_ADMIN_PASSWORD:?DATAHUB_ADMIN_PASSWORD is required}
+      DATAHUB_TOKEN_TTL_SECONDS: ${DATAHUB_TOKEN_TTL_SECONDS:-28800}
+      DATAHUB_CORS_ORIGINS: ${DATAHUB_CORS_ORIGINS:-}
+      DATAHUB_DB: postgresql+psycopg2://${POSTGRES_USER:?POSTGRES_USER is required}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@postgres:5432/${POSTGRES_DB:?POSTGRES_DB is required}
+      DATAHUB_STORAGE: /app/storage
+      DATAHUB_STORAGE_BACKEND: ${DATAHUB_STORAGE_BACKEND:-s3}
+      DATAHUB_S3_ENDPOINT: ${DATAHUB_S3_ENDPOINT:-http://minio:9000}
+      DATAHUB_S3_BUCKET: ${DATAHUB_S3_BUCKET:?DATAHUB_S3_BUCKET is required}
+      DATAHUB_S3_PREFIX: ${DATAHUB_S3_PREFIX:-datahub}
+      DATAHUB_S3_REGION: ${DATAHUB_S3_REGION:-us-east-1}
+      DATAHUB_S3_ACCESS_KEY: ${DATAHUB_S3_ACCESS_KEY:?DATAHUB_S3_ACCESS_KEY is required}
+      DATAHUB_S3_SECRET_KEY: ${DATAHUB_S3_SECRET_KEY:?DATAHUB_S3_SECRET_KEY is required}
+      DATAHUB_S3_AUTO_CREATE_BUCKET: ${DATAHUB_S3_AUTO_CREATE_BUCKET:-false}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DATAHUB_EMBEDDING_API_KEY: ${DATAHUB_EMBEDDING_API_KEY:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+    volumes:
+      - backend-storage:/app/storage
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health/ready', timeout=3)\""]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+    restart: unless-stopped
+    networks: [datahub]
+
+  worker:
+    build:
+      context: ../server
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    command: ["python", "-m", "app.worker"]
+    environment:
+      DATAHUB_ENV: production
+      DATAHUB_SECRET: ${DATAHUB_SECRET:?DATAHUB_SECRET is required}
+      DATAHUB_DB: postgresql+psycopg2://${POSTGRES_USER:?POSTGRES_USER is required}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@postgres:5432/${POSTGRES_DB:?POSTGRES_DB is required}
+      DATAHUB_STORAGE: /app/storage
+      DATAHUB_STORAGE_BACKEND: ${DATAHUB_STORAGE_BACKEND:-s3}
+      DATAHUB_S3_ENDPOINT: ${DATAHUB_S3_ENDPOINT:-http://minio:9000}
+      DATAHUB_S3_BUCKET: ${DATAHUB_S3_BUCKET:?DATAHUB_S3_BUCKET is required}
+      DATAHUB_S3_PREFIX: ${DATAHUB_S3_PREFIX:-datahub}
+      DATAHUB_S3_REGION: ${DATAHUB_S3_REGION:-us-east-1}
+      DATAHUB_S3_ACCESS_KEY: ${DATAHUB_S3_ACCESS_KEY:?DATAHUB_S3_ACCESS_KEY is required}
+      DATAHUB_S3_SECRET_KEY: ${DATAHUB_S3_SECRET_KEY:?DATAHUB_S3_SECRET_KEY is required}
+      DATAHUB_S3_AUTO_CREATE_BUCKET: ${DATAHUB_S3_AUTO_CREATE_BUCKET:-false}
+      DATAHUB_WORKER_HEARTBEAT: /tmp/datahub-workerhealthy
+      DATAHUB_WORKER_POLL_SECONDS: ${DATAHUB_WORKER_POLL_SECONDS:-5}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+    volumes:
+      - backend-storage:/app/storage
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import os,time; p='/tmp/datahub-workerhealthy'; assert time.time()-os.path.getmtime(p) < 30\""]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks: [datahub]
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "${DATAHUB_HTTP_PORT:?DATAHUB_HTTP_PORT is required}:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/datahub.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/http-proxy.conf:/etc/nginx/datahub/http-mode.conf:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1/api/health/live || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks: [datahub]
+
+networks:
+  datahub:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  minio-data:
+  backend-storage:
