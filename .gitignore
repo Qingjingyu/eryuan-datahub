@@ -1,0 +1,39 @@
+# macOS / editor noise
+.DS_Store
+*.swp
+.idea/
+.vscode/
+!.vscode/extensions.json
+
+# Secrets and environment overrides
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Runtime data and databases
+server/storage/
+*.db
+*.sqlite3
+*.dump
+*.log
+*.pid
+
+# Node / frontend
+node_modules/
+dist/
+coverage/
+
+# Internal local tooling and references
+local/
+
+# OS archives and temporary bundles
+*.tar.gz
+*.zip

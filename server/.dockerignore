@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+storage
+static/assets/.vite
+*.log
+*.pid
+*.db
+*.sqlite3
