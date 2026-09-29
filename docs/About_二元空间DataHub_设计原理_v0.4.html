@@ -1,0 +1,229 @@
+<div style="max-width:1240px;margin:0 auto;color:#241b1f;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+<div style="padding:34px;border-radius:28px;background:linear-gradient(135deg,#fcfcfb 0%,#f6f4f1 58%,#efe7e9 100%);border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 28px 70px -32px rgba(36,27,31,.28)">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:30px;align-items:center">
+<div>
+<div style="display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;background:#fff;border:1px solid #ebe9e6;color:#6f6560;font-size:11px;font-weight:800;letter-spacing:.22em">ER YUAN SPACE · DATA HUB</div>
+<h1 style="margin:18px 0 12px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:46px;line-height:1.08;letter-spacing:-.045em;color:#241b1f">关于 / 设计原理与开发总纲</h1>
+<p style="margin:0;max-width:680px;color:#6f6560;font-size:16px;line-height:1.8">二元空间 Data Hub 是企业 <strong style="color:#3f1f2c">Context Plane</strong>。它先让散落的文件、业务数据、会议结论、产品知识和 AI 产物变成有 ID、负责人、状态、版本、权限和来源的资产，再让人和 Agent 在同一套可信上下文里工作。</p>
+<div style="margin-top:22px;padding:18px 20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6;box-shadow:0 10px 28px -22px rgba(36,27,31,.35)"><div style="font-size:12px;color:#8b8280">一句话定义</div><div style="margin-top:8px;font-size:18px;line-height:1.6;font-family:Georgia,serif">先发现事实、整理事实、确认事实，再把<strong style="color:#3f1f2c">正确的事实</strong>，在正确的时间，以正确的权限，交给正确的人和 Agent。</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px"><span style="padding:9px 14px;border-radius:12px;background:#3f1f2c;color:#fff;font-size:13px;font-weight:600">先跑最小闭环</span><span style="padding:9px 14px;border-radius:12px;background:#fff;border:1px solid #ebe9e6;color:#6f6560;font-size:13px;font-weight:600">再做图谱 / Agent / BI</span></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+<div style="padding:20px;border-radius:20px;background:#fff;border:1px solid #ebe9e6;box-shadow:0 8px 24px -18px rgba(36,27,31,.25)"><div style="display:flex;align-items:center;gap:9px"><span style="width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#e5f6ec;color:#2e8b57;font-weight:800">◈</span><span style="font-size:12px;color:#6f6560">设计基线</span></div><div style="margin-top:15px;font-size:24px;font-weight:700">11</div><div style="margin-top:5px;font-size:11px;color:#8b8280">设计原点到最终形态</div></div>
+<div style="padding:20px;border-radius:20px;background:#fff;border:1px solid #ebe9e6;box-shadow:0 8px 24px -18px rgba(36,27,31,.25)"><div style="display:flex;align-items:center;gap:9px"><span style="width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#efebff;color:#8377d6;font-weight:800">⌘</span><span style="font-size:12px;color:#6f6560">交付阶段</span></div><div style="margin-top:15px;font-size:24px;font-weight:700">6</div><div style="margin-top:5px;font-size:11px;color:#8b8280">资产 / 解析 / 审核 / 索引 / Agent / 图谱</div></div>
+<div style="padding:20px;border-radius:20px;background:#fff;border:1px solid #ebe9e6;box-shadow:0 8px 24px -18px rgba(36,27,31,.25)"><div style="display:flex;align-items:center;gap:9px"><span style="width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#e9f1fd;color:#5b86d1;font-weight:800">◎</span><span style="font-size:12px;color:#6f6560">Pilot assets</span></div><div style="margin-top:15px;font-size:24px;font-weight:700">20</div><div style="margin-top:5px;font-size:11px;color:#8b8280">妆舟模拟知识包</div></div>
+<div style="padding:20px;border-radius:20px;background:#fff;border:1px solid #ebe9e6;box-shadow:0 8px 24px -18px rgba(36,27,31,.25)"><div style="display:flex;align-items:center;gap:9px"><span style="width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:#fdf0f2;color:#d1568a;font-weight:800">✓</span><span style="font-size:12px;color:#6f6560">Citation target</span></div><div style="margin-top:15px;font-size:24px;font-weight:700">100%</div><div style="margin-top:5px;font-size:11px;color:#8b8280">回答必须带来源</div></div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">01 / WHY</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:28px;font-weight:500">为什么企业需要它</h2>
+<p style="margin:0;max-width:900px;color:#6f6560;font-size:15px;line-height:1.85">企业的问题通常不是“没有数据”，而是数据一多就开始失控。资料散落在本地电脑、飞书、会议纪要、ERP / CRM、产品文档、研发资料和 AI 会话里。真正缺少的是一套机制，让这些内容能够被统一识别、确认、授权、追踪和使用。</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;margin-top:20px">
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:11px;font-weight:800;color:#a9a19d">01</div><h3 style="margin:8px 0 7px;font-size:16px">版本失控</h3><p style="margin:0;color:#6f6560;font-size:13px;line-height:1.7">同一份资料有多个版本，没人知道哪一份是正式版本，哪一份只是讨论稿。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:11px;font-weight:800;color:#a9a19d">02</div><h3 style="margin:8px 0 7px;font-size:16px">责任不清</h3><p style="margin:0;color:#6f6560;font-size:13px;line-height:1.7">资料存在，但缺少 Owner，没人负责持续维护、更新、审核和归档。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:11px;font-weight:800;color:#a9a19d">03</div><h3 style="margin:8px 0 7px;font-size:16px">AI 不可信</h3><p style="margin:0;color:#6f6560;font-size:13px;line-height:1.7">AI 能搜到内容，却不知道内容是否过期、未审核、重复、敏感或无权限。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:11px;font-weight:800;color:#a9a19d">04</div><h3 style="margin:8px 0 7px;font-size:16px">来源不可追</h3><p style="margin:0;color:#6f6560;font-size:13px;line-height:1.7">答案看起来合理，却无法追溯到底依据哪一份文件、哪一段原文、哪一个版本。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:11px;font-weight:800;color:#a9a19d">05</div><h3 style="margin:8px 0 7px;font-size:16px">权限不稳定</h3><p style="margin:0;color:#6f6560;font-size:13px;line-height:1.7">敏感内容可能被错误授权给成员、系统或 Agent，造成业务和合规风险。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:11px;font-weight:800;color:#a9a19d">06</div><h3 style="margin:8px 0 7px;font-size:16px">变化不可感知</h3><p style="margin:0;color:#6f6560;font-size:13px;line-height:1.7">文件被修改或删除后，没人知道哪些索引、答案、Agent 和业务流程受到影响。</p></div>
+</div>
+<div style="margin-top:16px;padding:18px 20px;border-left:4px solid #3f1f2c;background:#f7f4f2;border-radius:0 16px 16px 0;color:#4a3f43;font-size:14px;line-height:1.75"><strong>设计判断：</strong>第一步不是“让 AI 搜更多资料”，而是先让企业知道自己到底拥有哪些可信资产。</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:18px;margin-top:18px;align-items:stretch">
+<div style="padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">02 / BEYOND RAG</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:500">不只是做一个更大的 RAG</h2>
+<p style="margin:0;color:#6f6560;font-size:14px;line-height:1.8">传统知识库解决“怎么让模型找到内容”。企业级系统还要解决“这份内容到底能不能被使用”。</p>
+<div style="margin-top:20px;padding:18px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:12px;font-weight:700;color:#8b8280">普通 RAG 链路</div><div style="margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:12px"><span style="padding:7px 10px;background:#faf9f8;border:1px solid #f0eeeb;border-radius:999px">上传文件</span><span style="color:#a9a19d">→</span><span style="padding:7px 10px;background:#faf9f8;border:1px solid #f0eeeb;border-radius:999px">Chunk</span><span style="color:#a9a19d">→</span><span style="padding:7px 10px;background:#faf9f8;border:1px solid #f0eeeb;border-radius:999px">Embedding</span><span style="color:#a9a19d">→</span><span style="padding:7px 10px;background:#faf9f8;border:1px solid #f0eeeb;border-radius:999px">检索</span><span style="color:#a9a19d">→</span><span style="padding:7px 10px;background:#faf9f8;border:1px solid #f0eeeb;border-radius:999px">LLM 回答</span></div></div>
+<div style="margin-top:14px;padding:18px;border-radius:18px;background:#effaf1;border:1px solid #d9f0df"><div style="font-size:12px;font-weight:700;color:#3f9c62">企业级补充层</div><div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:7px;font-size:12px"><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">身份 / 权限</span><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">业务线</span><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">版本</span><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">审核状态</span><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">Owner</span><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">来源引用</span><span style="padding:7px 10px;background:#fff;border:1px solid #d9f0df;border-radius:999px">审计日志</span></div></div>
+<div style="margin-top:18px;padding:18px;border-radius:18px;background:#241b1f;color:#f7f4f2"><div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#e2c8d1">ASSET REGISTRY</div><pre style="margin:10px 0 0;white-space:pre-wrap;font:12px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">asset_id · title · owner · source · version
+status · tags · visibility · checksum
+review_status · index_status · graph_status
+created_at · updated_at · retention_policy</pre></div>
+<p style="margin:14px 0 0;color:#6f6560;font-size:13px;line-height:1.75">从这一刻开始，一份文件不再只是文件，而成为可以被识别、追踪、授权、审核和使用的企业资产。</p>
+</div>
+<div style="padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">03 / ARCHITECTURE</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:500">总体架构与组件分工</h2>
+<div style="margin-top:18px;display:grid;gap:10px">
+<div style="padding:15px 16px;border-radius:14px;background:#f0f9ff;border:1px solid #bae6fd"><strong style="font-size:13px">01 数据源</strong><p style="margin:6px 0 0;color:#475569;font-size:12px;line-height:1.6">本地文件、飞书、业务系统导出、产品文档、会议纪要、Agent 产物。</p></div>
+<div style="padding:15px 16px;border-radius:14px;background:#f5f3ff;border:1px solid #ddd6fe"><strong style="font-size:13px">02 Raw / Staging</strong><p style="margin:6px 0 0;color:#475569;font-size:12px;line-height:1.6">原始文件不可修改；解析、OCR、清洗和结构化结果进入可重建的处理区。</p></div>
+<div style="padding:15px 16px;border-radius:14px;background:#ecfdf5;border:1px solid #a7f3d0"><strong style="font-size:13px">03 Asset Registry</strong><p style="margin:6px 0 0;color:#475569;font-size:12px;line-height:1.6">统一 asset_id、Owner、Status、Tags、Permission、Version、Audit。</p></div>
+<div style="padding:15px 16px;border-radius:14px;background:#fffbeb;border:1px solid #fde68a"><strong style="font-size:13px">04 Index</strong><p style="margin:6px 0 0;color:#475569;font-size:12px;line-height:1.6">向量索引、全文索引、结构化过滤、图谱索引；只索引 Approved 资产。</p></div>
+<div style="padding:15px 16px;border-radius:14px;background:#fdf2f8;border:1px solid #fbcfe8"><strong style="font-size:13px">05 Serving</strong><p style="margin:6px 0 0;color:#475569;font-size:12px;line-height:1.6">搜索、问答、报告、Agent、审计与反馈；回答必须带引用。</p></div>
+</div>
+<div style="margin-top:16px;border:1px solid #ebe9e6;border-radius:16px;overflow:hidden;background:#fff">
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;background:#faf9f8;color:#a9a19d;font-size:11px"><span>能力</span><span>第一版组件</span></div>
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;border-top:1px solid #f2f0ed;font-size:12px"><span style="font-weight:700">控制台</span><span style="color:#6f6560">NocoBase</span></div>
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;border-top:1px solid #f2f0ed;font-size:12px"><span style="font-weight:700">资产元数据</span><span style="color:#6f6560">PostgreSQL</span></div>
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;border-top:1px solid #f2f0ed;font-size:12px"><span style="font-weight:700">文件存储</span><span style="color:#6f6560">MinIO / OSS / COS</span></div>
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;border-top:1px solid #f2f0ed;font-size:12px"><span style="font-weight:700">解析 / RAG</span><span style="color:#6f6560">RAGFlow，后期可换 Worker</span></div>
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;border-top:1px solid #f2f0ed;font-size:12px"><span style="font-weight:700">回答 / Embedding</span><span style="color:#6f6560">DeepSeek + bge-m3</span></div>
+<div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:8px;padding:11px 14px;border-top:1px solid #f2f0ed;font-size:12px"><span style="font-weight:700">图谱 / BI</span><span style="color:#6f6560">关系表 → Neo4j；Superset / Metabase</span></div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">04 / METHOD</div>
+<h2 style="margin:10px 0 14px;font-family:Georgia,serif;font-size:28px;font-weight:500">这套方法从哪里来</h2>
+<p style="margin:0;max-width:920px;color:#6f6560;font-size:15px;line-height:1.85">这不是从零创造的新概念，而是把企业 IT、数据治理和 Agent 时代已经验证的方法，重新组合成适合二元空间第一阶段落地的小闭环。</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:20px">
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><h3 style="margin:0;font-size:16px">数据分层</h3><p style="margin:8px 0 0;color:#6f6560;font-size:13px;line-height:1.7">借鉴 Lakehouse / Medallion，把原始事实、处理结果、正式知识和 AI 产物分开。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><h3 style="margin:0;font-size:16px">企业内容管理</h3><p style="margin:8px 0 0;color:#6f6560;font-size:13px;line-height:1.7">借鉴 ECM / DAM / SharePoint / Confluence，让资料拥有 ID、版本、负责人、权限和生命周期。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><h3 style="margin:0;font-size:16px">元数据治理</h3><p style="margin:8px 0 0;color:#6f6560;font-size:13px;line-height:1.7">借鉴 DataHub、OpenMetadata、Purview，建立企业资产总账和目录视图。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><h3 style="margin:0;font-size:16px">RAG 检索</h3><p style="margin:8px 0 0;color:#6f6560;font-size:13px;line-height:1.7">继续使用 Chunk、Embedding、向量 / 关键词 / Rerank，但增加企业级过滤条件。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><h3 style="margin:0;font-size:16px">Agent Context</h3><p style="margin:8px 0 0;color:#6f6560;font-size:13px;line-height:1.7">Agent 不直接拥有所有数据，只能通过受控工具和 API 访问上下文。</p></div>
+<div style="padding:20px;border-radius:18px;background:#fff;border:1px solid #ebe9e6"><h3 style="margin:0;font-size:16px">Ontology / 图谱</h3><p style="margin:8px 0 0;color:#6f6560;font-size:13px;line-height:1.7">从“哪篇文档写了什么”，走向“企业里的客户、项目、产品、决策之间是什么关系”。</p></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-top:18px">
+<div style="min-height:84px;padding:14px;border-radius:14px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:10px;font-weight:800;color:#a9a19d">RAW</div><strong style="display:block;margin-top:7px;font-size:13px">原始资料</strong></div>
+<div style="min-height:84px;padding:14px;border-radius:14px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:10px;font-weight:800;color:#a9a19d">STAGING</div><strong style="display:block;margin-top:7px;font-size:13px">解析 / 清洗</strong></div>
+<div style="min-height:84px;padding:14px;border-radius:14px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:10px;font-weight:800;color:#a9a19d">CURATED</div><strong style="display:block;margin-top:7px;font-size:13px">正式知识</strong></div>
+<div style="min-height:84px;padding:14px;border-radius:14px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:10px;font-weight:800;color:#a9a19d">INDEX</div><strong style="display:block;margin-top:7px;font-size:13px">全文 / 向量</strong></div>
+<div style="min-height:84px;padding:14px;border-radius:14px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:10px;font-weight:800;color:#a9a19d">CONTEXT</div><strong style="display:block;margin-top:7px;font-size:13px">Agent 上下文</strong></div>
+<div style="min-height:84px;padding:14px;border-radius:14px;background:#fff;border:1px solid #ebe9e6"><div style="font-size:10px;font-weight:800;color:#a9a19d">OUTPUT</div><strong style="display:block;margin-top:7px;font-size:13px">AI 产物</strong></div>
+</div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">05 / LIFECYCLE</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:28px;font-weight:500">一份资料进入系统以后发生什么</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;margin-top:20px">
+<div style="padding:18px;border:1px solid #ebe9e6;border-radius:18px;background:#fff"><b style="display:block;margin-bottom:6px;font-size:14px">Raw</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">原始资料进入系统，保留来源、上传人、时间和 checksum。</span></div>
+<div style="padding:18px;border:1px solid #ebe9e6;border-radius:18px;background:#fff"><b style="display:block;margin-bottom:6px;font-size:14px">Parsed</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">完成 PDF、Word、Excel、图片、音频等内容解析。</span></div>
+<div style="padding:18px;border:1px solid #ebe9e6;border-radius:18px;background:#fff"><b style="display:block;margin-bottom:6px;font-size:14px">Cleaned</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">去噪、结构化、标题识别、表格抽取、格式整理。</span></div>
+<div style="padding:18px;border:1px solid #ebe9e6;border-radius:18px;background:#fff"><b style="display:block;margin-bottom:6px;font-size:14px">Reviewed</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">人工检查内容、标签、业务归属、负责人和权限。</span></div>
+<div style="padding:18px;border:1px solid #c9cffc;border-radius:18px;background:#f7f8ff"><b style="display:block;margin-bottom:6px;font-size:14px">Approved</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">企业正式确认可以作为正式知识使用。</span></div>
+<div style="padding:18px;border:1px solid #ebe9e6;border-radius:18px;background:#fff"><b style="display:block;margin-bottom:6px;font-size:14px">Indexed</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">完成向量索引、全文索引，已经具备“被找到”的能力。</span></div>
+<div style="padding:18px;border:1px solid #bfe7d8;border-radius:18px;background:#f2fbf7"><b style="display:block;margin-bottom:6px;font-size:14px">Serving</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">正式开放给 Agent、企业搜索或业务应用使用。</span></div>
+<div style="padding:18px;border:1px solid #ebe9e6;border-radius:18px;background:#fff"><b style="display:block;margin-bottom:6px;font-size:14px">Archived</b><span style="color:#6f6560;font-size:12.5px;line-height:1.65">过期、废弃或归档，不再作为当前上下文提供。</span></div>
+</div>
+<div style="margin-top:16px;padding:18px 20px;border-left:4px solid #3f1f2c;background:#f7f4f2;border-radius:0 16px 16px 0;color:#4a3f43;font-size:14px;line-height:1.75"><strong>关键拆分：</strong>Approved、Indexed、Serving 被刻意拆开，因为“已经审核”“已经索引”“允许 AI 使用”是三件不同的事。</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px;margin-top:18px;align-items:stretch">
+<div style="padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">06 / SOURCE OF TRUTH</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:500">为什么原始资料必须独立保存</h2>
+<p style="margin:0;color:#6f6560;font-size:14px;line-height:1.8">原始资料是 Source of Truth；RAG、向量库、索引和摘要都是可重新生成的派生层。</p>
+<div style="display:grid;gap:10px;margin-top:18px">
+<div style="padding:16px 18px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.7;color:#4b5563"><strong style="color:#241b1f">可以重建：</strong>RAGFlow、向量库、Embedding、Chunk、搜索引擎、LLM。</div>
+<div style="padding:16px 18px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.7;color:#4b5563"><strong style="color:#241b1f">不能丢：</strong>原始资料、asset_id、版本、负责人、来源、权限、审核记录。</div>
+<div style="padding:16px 18px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.7;color:#4b5563"><strong style="color:#241b1f">索引只是派生物：</strong>它可以删除、换模型、重新切片、重新生成。</div>
+<div style="padding:16px 18px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.7;color:#4b5563"><strong style="color:#241b1f">避免供应商绑死：</strong>模型和工具可以替换，资产身份不能消失。</div>
+</div>
+</div>
+<div style="padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">07 / VALUE</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:500">对人和 AI 分别有什么价值</h2>
+<div style="display:grid;gap:10px;margin-top:18px">
+<div style="padding:16px;border-radius:16px;background:#eff6ff;border:1px solid #bfdbfe"><strong style="font-size:13px;color:#1e40af">普通员工</strong><p style="margin:7px 0 0;color:#334155;font-size:12.5px;line-height:1.7">从“翻群、问人、找文件、对版本”，变成直接搜索或提问，并看到来源、版本和更新时间。</p></div>
+<div style="padding:16px;border-radius:16px;background:#f5f3ff;border:1px solid #ddd6fe"><strong style="font-size:13px;color:#5b21b6">业务负责人</strong><p style="margin:7px 0 0;color:#334155;font-size:12.5px;line-height:1.7">知道自己负责哪些资产、哪些待审核、哪些过期、哪些正被 Agent 使用。</p></div>
+<div style="padding:16px;border-radius:16px;background:#ecfdf5;border:1px solid #a7f3d0"><strong style="font-size:13px;color:#065f46">管理员</strong><p style="margin:7px 0 0;color:#334155;font-size:12.5px;line-height:1.7">看到资产总量、失败任务、权限异常、重复资产、未分类资料和索引异常。</p></div>
+<div style="padding:16px;border-radius:16px;background:#fdf2f8;border:1px solid #fbcfe8"><strong style="font-size:13px;color:#9d174d">Agent</strong><p style="margin:7px 0 0;color:#334155;font-size:12.5px;line-height:1.7">看到有身份、状态、版本、权限、来源和关系的资产，而不是一堆无法判断可信度的文档。</p></div>
+</div>
+<div style="margin-top:16px;padding:20px;border-radius:18px;background:#241b1f;color:#fff;font-family:Georgia,serif;font-size:20px;line-height:1.5">过去是“找资料”。未来是：<strong>问企业。</strong></div>
+</div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">08 / AI PIPELINE</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:28px;font-weight:500">AI 的回答链路必须改变</h2>
+<p style="margin:0;max-width:900px;color:#6f6560;font-size:15px;line-height:1.85">AI 的工作方式从“根据我能搜到的内容回答”，变成“根据当前用户有权访问、企业已经确认、仍然有效的正式资产回答”。</p>
+<div style="margin-top:20px;padding:22px;background:#0f172a;color:#dbeafe;border-radius:18px;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;overflow:auto">用户问题
+↓
+身份 / 权限检查
+↓
+状态 / 版本过滤
+↓
+向量 + 关键词 + 结构化检索
+↓
+Rerank
+↓
+LLM 根据正式资产回答
+↓
+返回 answer + citations + asset_id</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:16px">
+<div style="padding:16px;border-radius:14px;background:#effaf1;border:1px solid #d9f0df;font-size:12.5px;line-height:1.6"><strong>search_assets()</strong><div style="color:#6f7a71;margin-top:5px">先查权限和状态，再检索。</div></div>
+<div style="padding:16px;border-radius:14px;background:#effaf1;border:1px solid #d9f0df;font-size:12.5px;line-height:1.6"><strong>read_asset()</strong><div style="color:#6f7a71;margin-top:5px">读取原文、摘要、版本和来源。</div></div>
+<div style="padding:16px;border-radius:14px;background:#effaf1;border:1px solid #d9f0df;font-size:12.5px;line-height:1.6"><strong>generate_report()</strong><div style="color:#6f7a71;margin-top:5px">产物先进入待审区，不直接覆盖事实。</div></div>
+</div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">09 / EVALUATION</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:28px;font-weight:500">我们如何判断它是不是有效</h2>
+<p style="margin:0;max-width:900px;color:#6f6560;font-size:15px;line-height:1.85">不使用“感觉 AI 回答得不错”作为验收标准，而是用真实业务问题持续评估。第一版先用 20 个妆舟模拟资产和一组真实问题跑通基线。</p>
+<div style="margin-top:20px;border:1px solid #ebe9e6;border-radius:18px;overflow:hidden;background:#fff">
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:12px 14px;background:#faf9f8;color:#a9a19d;font-size:11px"><span>指标</span><span>回答什么问题</span><span>第一阶段目标</span><span style="text-align:right">状态</span></div>
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:13px 14px;border-top:1px solid #f2f0ed;font-size:12.5px"><strong>Retrieval Recall</strong><span style="color:#6f6560">正确资料有没有被检索出来。</span><span>Top5 ≥ 90%</span><span style="color:#d97706;text-align:right">待验收</span></div>
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:13px 14px;border-top:1px solid #f2f0ed;font-size:12.5px"><strong>Citation Accuracy</strong><span style="color:#6f6560">引用来源是否真的支持结论。</span><span>100%</span><span style="color:#d97706;text-align:right">待验收</span></div>
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:13px 14px;border-top:1px solid #f2f0ed;font-size:12.5px"><strong>Freshness</strong><span style="color:#6f6560">是否优先使用最新有效版本。</span><span>不引用 Deprecated</span><span style="color:#d97706;text-align:right">待验收</span></div>
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:13px 14px;border-top:1px solid #f2f0ed;font-size:12.5px"><strong>Permission Accuracy</strong><span style="color:#6f6560">是否严格遵守用户和 Agent 权限。</span><span>0 次越权</span><span style="color:#d97706;text-align:right">待验收</span></div>
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:13px 14px;border-top:1px solid #f2f0ed;font-size:12.5px"><strong>Groundedness</strong><span style="color:#6f6560">回答是否脱离正式资料自由发挥。</span><span>有据可查</span><span style="color:#d97706;text-align:right">待验收</span></div>
+<div style="display:grid;grid-template-columns:.8fr 1.2fr .8fr .6fr;gap:10px;padding:13px 14px;border-top:1px solid #f2f0ed;font-size:12.5px"><strong>Traceability</strong><span style="color:#6f6560">能否追溯 asset_id、版本和更新时间。</span><span>100%</span><span style="color:#d97706;text-align:right">待验收</span></div>
+</div>
+<div style="margin-top:14px;padding:16px;border-radius:14px;background:#faf9f8;border:1px solid #f0eeeb;color:#6f6560;font-size:12.5px;line-height:1.7"><strong style="color:#241b1f">图表 / 指标口径：</strong>以上是 Phase 1-4 验收目标，不是生产实测结果。当前证据等级为本地功能验证：NocoBase + PostgreSQL 已部署；RAGFlow 已完成本地上传、解析、索引和问答试验。</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:18px;margin-top:18px;align-items:stretch">
+<div style="padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">10 / ROADMAP</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:500">落地路线图</h2>
+<div style="display:grid;gap:10px;margin-top:18px">
+<div style="padding:16px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13px">Phase 1 · Asset Registry</strong><span style="font-size:11px;color:#d97706">Next</span></div><p style="margin:7px 0 0;color:#6f6560;font-size:12.5px;line-height:1.65">建资产 / 文件 / 标签 / 审核模型，导入 20 个妆舟模拟资产。</p></div>
+<div style="padding:16px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13px">Phase 2 · Parse & Review</strong><span style="font-size:11px;color:#8b8280">Design</span></div><p style="margin:7px 0 0;color:#6f6560;font-size:12.5px;line-height:1.65">自动解析 Markdown / Word / PDF / 表格 / OCR，建立审核中心。</p></div>
+<div style="padding:16px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13px">Phase 3 · Index & Search</strong><span style="font-size:11px;color:#8b8280">Planned</span></div><p style="margin:7px 0 0;color:#6f6560;font-size:12.5px;line-height:1.65">只索引 Approved 资产，打通权限过滤和混合检索。</p></div>
+<div style="padding:16px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13px">Phase 4 · Agent</strong><span style="font-size:11px;color:#8b8280">Planned</span></div><p style="margin:7px 0 0;color:#6f6560;font-size:12.5px;line-height:1.65">只开放 search / read / report，回答必须带引用和审计日志。</p></div>
+<div style="padding:16px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13px">Phase 5 · Graph</strong><span style="font-size:11px;color:#8b8280">Planned</span></div><p style="margin:7px 0 0;color:#6f6560;font-size:12.5px;line-height:1.65">定义客户、产品、项目、会议、决策等对象和关系。</p></div>
+<div style="padding:16px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:13px">Phase 6 · Production</strong><span style="font-size:11px;color:#8b8280">Planned</span></div><p style="margin:7px 0 0;color:#6f6560;font-size:12.5px;line-height:1.65">迁移服务器，补齐备份、权限、审计、性能和稳定性验收。</p></div>
+</div>
+</div>
+<div style="padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">11 / MVP BOUNDARY</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:26px;font-weight:500">第一阶段刻意不做什么</h2>
+<p style="margin:0;color:#6f6560;font-size:14px;line-height:1.8">第一阶段不是建设“大而全数据中台”，而是验证一条最重要的链路：企业真实资料能否稳定变成可信资产，并被 Agent 安全、准确地使用。</p>
+<div style="display:grid;gap:10px;margin-top:18px">
+<div style="padding:15px 17px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.6">不接全公司所有数据源。</div>
+<div style="padding:15px 17px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.6">不做完整数据仓库和复杂 BI。</div>
+<div style="padding:15px 17px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.6">不做字段级复杂权限和复杂审批流。</div>
+<div style="padding:15px 17px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.6">不做第一版自动知识图谱。</div>
+<div style="padding:15px 17px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.6">不训练垂直模型。</div>
+<div style="padding:15px 17px;border-radius:16px;border:1px solid #ebe9e6;background:#fff;font-size:13px;line-height:1.6">不允许 Agent 直接修改核心业务数据库。</div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<div style="font-size:11px;font-weight:800;letter-spacing:.18em;color:#8b8280">12 / NORTH STAR</div>
+<h2 style="margin:10px 0 12px;font-family:Georgia,serif;font-size:28px;font-weight:500">最终形态</h2>
+<div style="padding:22px;background:#0f172a;color:#dbeafe;border-radius:18px;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;overflow:auto">企业数据
+↓
+统一 Asset ID / 来源 / 负责人
+↓
+统一状态 / 版本 / 权限
+↓
+统一生命周期 / 检索 / Agent Context
+↓
+统一审计 / 反馈 / 图谱</div>
+<div style="margin-top:16px;padding:20px 22px;border:1px solid #d9c8cf;border-radius:18px;background:linear-gradient(135deg,#fff,#f7f4f2);box-shadow:0 10px 28px -22px rgba(36,27,31,.4);font-family:Georgia,serif;font-size:19px;line-height:1.7">我们不会为了 AI 重新创造企业事实。我们负责的是：<strong style="color:#3f1f2c">发现事实、整理事实、确认事实、管理事实，然后把正确的事实，在正确的时间，以正确的权限，交给正确的人和 Agent。</strong></div>
+</div>
+
+<div style="margin-top:18px;padding:28px;border-radius:24px;background:#fcfcfb;border:1px solid #ebe9e6;box-shadow:0 1px 2px rgba(24,20,22,.04),0 18px 46px -32px rgba(36,27,31,.32)">
+<h2 style="margin:0 0 14px;font-family:Georgia,serif;font-size:24px;font-weight:500">参考依据</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+<div style="padding:18px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><strong style="font-size:14px">Lakehouse / Medallion</strong><p style="margin:8px 0 10px;color:#6f6560;font-size:12.5px;line-height:1.65">Raw / Staging / Curated / Serving 分层。</p><a href="https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">Databricks Medallion ↗</a></div>
+<div style="padding:18px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><strong style="font-size:14px">Metadata / Catalog</strong><p style="margin:8px 0 10px;color:#6f6560;font-size:12.5px;line-height:1.65">资产目录、Owner、Tag、Lineage 和治理视图。</p><a href="https://open-metadata.org/" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">OpenMetadata ↗</a><span style="color:#c5bdb9;margin:0 6px">·</span><a href="https://datahubproject.io/" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">DataHub ↗</a></div>
+<div style="padding:18px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><strong style="font-size:14px">RAG Engine</strong><p style="margin:8px 0 10px;color:#6f6560;font-size:12.5px;line-height:1.65">解析、切片、Embedding、检索和引用回答。</p><a href="https://github.com/infiniflow/ragflow" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">RAGFlow ↗</a></div>
+<div style="padding:18px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><strong style="font-size:14px">Agent Context</strong><p style="margin:8px 0 10px;color:#6f6560;font-size:12.5px;line-height:1.65">Agent 通过受控工具访问企业上下文。</p><a href="https://modelcontextprotocol.io/" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">Model Context Protocol ↗</a></div>
+<div style="padding:18px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><strong style="font-size:14px">GraphRAG / Ontology</strong><p style="margin:8px 0 10px;color:#6f6560;font-size:12.5px;line-height:1.65">在可信资产上构建业务对象与关系。</p><a href="https://github.com/microsoft/graphrag" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">Microsoft GraphRAG ↗</a><span style="color:#c5bdb9;margin:0 6px">·</span><a href="https://neo4j.com/" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">Neo4j ↗</a></div>
+<div style="padding:18px;border-radius:16px;background:#fff;border:1px solid #ebe9e6"><strong style="font-size:14px">Control Plane</strong><p style="margin:8px 0 10px;color:#6f6560;font-size:12.5px;line-height:1.65">快速搭建控制台、页面、角色和流程。</p><a href="https://github.com/nocobase/nocobase" style="color:#3f1f2c;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #d9c8cf;padding-bottom:2px">NocoBase ↗</a></div>
+</div>
+</div>
+
+<div style="margin:16px 0 24px;padding:18px 22px;border-radius:18px;background:#fff;border:1px dashed #d9d4d0;color:#6f6560;font-size:12px;line-height:1.8">二元空间 Data Hub · Design Principles & Delivery Baseline<br/>这是产品与技术共同遵循的设计基线，用于指导后续资产管理、知识检索、权限、Agent、图谱与验收。页面版本 v0.4 · 2026-09-23 · 当前状态：本地功能验证，非生产验收。</div>
+</div>
